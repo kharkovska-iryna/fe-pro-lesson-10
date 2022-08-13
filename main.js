@@ -34,12 +34,11 @@ Vechicle.prototype.toString = function() {
 
 function Car(model, year) {
 	Vechicle.call(this, model, year),
-	this.model = model,
-	this.year = year,
 	this.numWheels = 4
 };
 
 Car.prototype = Object.create(Vechicle.prototype);
+Car.prototype.constructor = Car;
 
 
 let car = new Car('Tesla', 2020);
@@ -53,12 +52,10 @@ console.log(car.toString());
 
 function Motorcycle(model, year) {
 	Vechicle.call(this, model, year),
-	this.model = model,
-	this.year = year,
 	this.numWheels = 2
 };
 Motorcycle.prototype = Object.create(Vechicle.prototype);
-
+Motorcycle.prototype.constructor = Motorcycle;
 
 
 let motorcycle = new Motorcycle('Suzuki', 2006);
@@ -68,3 +65,5 @@ console.log(motorcycle.numWheels);
 console.log(motorcycle.start());
 console.log(motorcycle.end());
 console.log(motorcycle.toString());
+
+Vechicle.call(this, model, year);
